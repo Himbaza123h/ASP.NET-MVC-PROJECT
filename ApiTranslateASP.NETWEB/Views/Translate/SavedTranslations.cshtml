@@ -1,0 +1,27 @@
+﻿@model IEnumerable<ApiTranslateASP.NETWEB.Models.Translation>
+use ApiTranslateASP.NETWEB.Models
+
+@{
+    ViewData["Title"] = "Saved Translations";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Saved Translations</h2>
+
+<table id="translationTable" class="display" style="width:100%">
+    <thead>
+        <tr>
+            <th>Original Text</th>
+            <th>Translated Text</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var translation in Model)
+        {
+            <tr>
+                <td>@translation.OriginalText</td>
+                <td>@translation.TranslatedText</td>
+            </tr>
+        }
+    </tbody>
+</table>
