@@ -11,3 +11,7 @@ namespace ApiTranslateASP.NETWEB.Contracts
         void AddTranslation(Translation translation);
     }
 }
+
+
+
+

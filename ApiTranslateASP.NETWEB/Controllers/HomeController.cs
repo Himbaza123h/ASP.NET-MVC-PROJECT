@@ -1,38 +1,36 @@
-﻿using ApiTranslateASP.NETWEB.Models;
+﻿using ApiTranslateASP.NETWEB.Models; // Ensure you have the appropriate using directive for your model
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
+using MongoDB.Driver;
 
 namespace ApiTranslateASP.NETWEB.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IMongoCollection<DatabaseSettings> _collection; // Use IMongoCollection<T> for strong typing
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IMongoDatabase database)
         {
-            _logger = logger;
+            // Specify the collection name "TRANSLATEAPP" here
+            _collection = database.GetCollection<DatabaseSettings>("TRANSLATEAPP");
         }
 
         public IActionResult Index()
         {
-            return View();
-        }
+            try
+            {
+                // Example: Query data from MongoDB
+                var data = _collection.Find(FilterDefinition<DatabaseSettings>.Empty)
+                                      .Limit(100) // Limit the result to 100 documents
+                                      .ToList();
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        public IActionResult Honore()
-        {
-            return View();
-        }
-
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+                // Pass the data to the view
+                return View(data);
+            }
+            catch (Exception ex)
+            {
+                // Handle any exceptions here (e.g., log or return an error view)
+                return View("Error", ex); // You can create an Error.cshtml view to display errors
+            }
         }
     }
 }

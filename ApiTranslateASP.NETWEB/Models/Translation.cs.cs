@@ -1,8 +1,12 @@
-﻿namespace ApiTranslateASP.NETWEB.Models
+﻿using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Bson;
+
+namespace ApiTranslateASP.NETWEB.Models
 {
     public class Translation
     {
-        public int Id { get; set; }
+        [BsonId]
+        
         public string OriginalText { get; set; }
         public string TranslatedText { get; set; }
     }

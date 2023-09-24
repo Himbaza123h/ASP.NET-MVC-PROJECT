@@ -31,3 +31,16 @@ D:\Stuffs\ApiTranslateASP.NET\ApiTranslateASP.NETWEB\obj\Debug\net6.0\ref\ApiTra
 D:\Stuffs\ApiTranslateASP.NET\ApiTranslateASP.NETWEB\bin\Debug\net6.0\Newtonsoft.Json.dll
 D:\Stuffs\ApiTranslateASP.NET\ApiTranslateASP.NETWEB\obj\Debug\net6.0\ApiTranslateASP.NETWEB.csproj.AssemblyReference.cache
 D:\Stuffs\ApiTranslateASP.NET\ApiTranslateASP.NETWEB\obj\Debug\net6.0\ApiTranslateASP.NETWEB.csproj.CopyComplete
+D:\Stuffs\ApiTranslateASP.NET\ApiTranslateASP.NETWEB\bin\Debug\net6.0\AWSSDK.Core.dll
+D:\Stuffs\ApiTranslateASP.NET\ApiTranslateASP.NETWEB\bin\Debug\net6.0\AWSSDK.SecurityToken.dll
+D:\Stuffs\ApiTranslateASP.NET\ApiTranslateASP.NETWEB\bin\Debug\net6.0\DnsClient.dll
+D:\Stuffs\ApiTranslateASP.NET\ApiTranslateASP.NETWEB\bin\Debug\net6.0\MongoDB.Bson.dll
+D:\Stuffs\ApiTranslateASP.NET\ApiTranslateASP.NETWEB\bin\Debug\net6.0\MongoDB.Driver.dll
+D:\Stuffs\ApiTranslateASP.NET\ApiTranslateASP.NETWEB\bin\Debug\net6.0\MongoDB.Driver.Core.dll
+D:\Stuffs\ApiTranslateASP.NET\ApiTranslateASP.NETWEB\bin\Debug\net6.0\MongoDB.Libmongocrypt.dll
+D:\Stuffs\ApiTranslateASP.NET\ApiTranslateASP.NETWEB\bin\Debug\net6.0\SharpCompress.dll
+D:\Stuffs\ApiTranslateASP.NET\ApiTranslateASP.NETWEB\bin\Debug\net6.0\Snappier.dll
+D:\Stuffs\ApiTranslateASP.NET\ApiTranslateASP.NETWEB\bin\Debug\net6.0\ZstdSharp.dll
+D:\Stuffs\ApiTranslateASP.NET\ApiTranslateASP.NETWEB\bin\Debug\net6.0\runtimes\linux\native\libmongocrypt.so
+D:\Stuffs\ApiTranslateASP.NET\ApiTranslateASP.NETWEB\bin\Debug\net6.0\runtimes\osx\native\libmongocrypt.dylib
+D:\Stuffs\ApiTranslateASP.NET\ApiTranslateASP.NETWEB\bin\Debug\net6.0\runtimes\win\native\mongocrypt.dll
