@@ -35,21 +35,19 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
-app.UseAuthorization();
-
-app.MapControllerRoute(
-    name: "translate",
-    pattern: "translate/{controller=Translate}/{action=translate}"
-);
-app.MapControllerRoute(
-    name: "recorded",
-    pattern: "recorded/{controller=SavedTranslations}/{action=SavedTranslations}"
-);
-
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}"
 );
+app.UseAuthorization(); app.MapControllerRoute(
+    name: "recorded",
+    pattern: "recorded/{controller=Recorded}/{action=Recorded}"
+);
+app.MapControllerRoute(
+    name: "translate",
+    pattern: "translate/{controller=Translate}/{action=translate}"
+);
+
+
 
 app.Run();

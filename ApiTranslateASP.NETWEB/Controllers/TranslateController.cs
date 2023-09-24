@@ -2,8 +2,10 @@
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace ApiTranslateASP.NETWEB.Controllers
 {
@@ -47,8 +49,8 @@ namespace ApiTranslateASP.NETWEB.Controllers
                     };
 
                     // Save the translation to MongoDB
-                     await _translationsCollection.InsertOneAsync(translation);
-                    var translations = await _translationsCollection.Find(_ => true).ToListAsync();
+                    await _translationsCollection.InsertOneAsync(translation);
+
                     ViewBag.SuccessMessage = "Translated successfully!";
                     Console.WriteLine("Output" + translation);
 
@@ -66,6 +68,24 @@ namespace ApiTranslateASP.NETWEB.Controllers
             }
 
             return View("~/Views/Translate/Index.cshtml");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetTranslations()
+        {
+            try
+            {
+                // Retrieve all translations from MongoDB
+                var translations = await _translationsCollection.Find(_ => true).ToListAsync();
+
+                // Return the translations as JSON
+                return Json(translations);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error fetching translations: " + ex.Message);
+                return StatusCode(500, "Error fetching translations");
+            }
         }
 
         private async Task<TranslationResponse> TranslateToLeetspeakAsync(string inputText)

@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "Saved Translations";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center">Saved Translations</h2>
+<table id="myTable" class="table table-bordered table-dark table-sm text-center" style="width: 50%;">
+    <thead>
+        <tr>
+            <th>Original Text</th>
+            <th>Translated Text</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Table rows will be dynamically added here using JavaScript -->
+    </tbody>
+</table>
+
+<!-- Add DataTables JavaScript -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/plug-ins/1.11.5/api/fnFilterClear.js"></script> <!-- To clear filters -->
+<script src="https://cdn.datatables.net/plug-ins/1.11.5/sorting/numeric-comma.js"></script> <!-- For numeric sorting -->
+<!-- Initialize DataTables -->
+<script>
+    $(document).ready(function () {
+        // Make an AJAX GET request to fetch translations
+        $.get("/translate/GetTranslations", function (data) {
+            // Reference to the table body
+            var tableBody = $('#myTable tbody');
+
+            // Iterate through the fetched data and add rows to the table
+            data.forEach(function (translation) {
+                var row = '<tr><td>' + translation.originalText + '</td><td>' + translation.translatedText + '</td></tr>';
+                tableBody.append(row);
+            });
+
+            // Initialize DataTables with additional options
+            $('#myTable').DataTable({
+                paging: true,           // Enable pagination
+                searching: true,        // Enable searching
+                order: [[0, 'asc']],    // Initial sorting by the first column
+                columnDefs: [
+                    { type: 'numeric-comma', targets: 0 } // Specify numeric sorting for the first column
+                ]
+            });
+        });
+    });
+</script>
