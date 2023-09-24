@@ -16,16 +16,8 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\Stuffs\ApiTranslateASP.NET\ApiTranslateASP.NETWEB
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/Stuffs/ApiTranslateASP.NET/ApiTranslateASP.NETWEB/Views/Home/Honore.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxIb25vcmUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/Stuffs/ApiTranslateASP.NET/ApiTranslateASP.NETWEB/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Stuffs/ApiTranslateASP.NET/ApiTranslateASP.NETWEB/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Stuffs/ApiTranslateASP.NET/ApiTranslateASP.NETWEB/Views/Shared/Error.cshtml]
@@ -40,8 +32,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNsYXRlXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Stuffs/ApiTranslateASP.NET/ApiTranslateASP.NETWEB/Views/Translate/SavedTranslations.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNsYXRlXFNhdmVkVHJhbnNsYXRpb25zLmNzaHRtbA==
+[D:/Stuffs/ApiTranslateASP.NET/ApiTranslateASP.NETWEB/Views/Translate/Recorded.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNsYXRlXFJlY29yZGVkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Stuffs/ApiTranslateASP.NET/ApiTranslateASP.NETWEB/Views/_ViewImports.cshtml]
