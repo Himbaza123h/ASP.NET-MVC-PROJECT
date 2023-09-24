@@ -1,14 +1,11 @@
 ﻿@model IEnumerable<ApiTranslateASP.NETWEB.Models.Translation>
-use ApiTranslateASP.NETWEB.Models
-
 @{
     ViewData["Title"] = "Saved Translations";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Saved Translations</h2>
-
-<table id="translationTable" class="display" style="width:100%">
+<h2 class="text-center">Saved Translations</h2>
+<table id="myTable" class="table table-bordered table-dark table-sm text-center" style="width: 50%;">
     <thead>
         <tr>
             <th>Original Text</th>
@@ -25,3 +22,14 @@ use ApiTranslateASP.NETWEB.Models
         }
     </tbody>
 </table>
+
+<!-- Add DataTables JavaScript -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+<!-- Initialize DataTables -->
+<script>
+    $(document).ready(function () {
+        $('#myTable').DataTable();
+    });
+</script>

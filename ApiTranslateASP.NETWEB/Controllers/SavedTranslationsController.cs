@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ApiTranslateASP.NETWEB.Models;
-using System.Collections.Generic;
 using ApiTranslateASP.NETWEB.Contracts;
-
+using System.Collections.Generic;
 
 namespace ApiTranslateASP.NETWEB.Controllers
 {
@@ -17,8 +16,8 @@ namespace ApiTranslateASP.NETWEB.Controllers
 
         public IActionResult SavedTranslations()
         {
-            IEnumerable<Translation> savedTranslations = _translationRepository.GetAllTranslations();
-            return View("~/Views/Translate/SavedTranslations.cshtml");
+            IEnumerable<Translation> translations = _translationRepository.GetAllTranslations();
+            return View(translations);
         }
     }
 }

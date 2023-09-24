@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ApiTranslateASP.NETWEB.Models;
+using Microsoft.AspNetCore.Mvc;
+using MongoDB.Driver;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -9,10 +11,12 @@ namespace ApiTranslateASP.NETWEB.Controllers
     {
         private const string BaseUrl = "https://api.funtranslations.com/translate/leetspeak.json";
         private readonly HttpClient _httpClient;
+        private readonly IMongoCollection<Translation> _translationsCollection;
 
-        public TranslateController()
+        public TranslateController(IMongoDatabase database)
         {
             _httpClient = new HttpClient();
+            _translationsCollection = database.GetCollection<Translation>("translations");
         }
 
         [HttpGet]
@@ -34,6 +38,19 @@ namespace ApiTranslateASP.NETWEB.Controllers
                 {
                     // Translate input text to Leetspeak using the API
                     var translationResult = await TranslateToLeetspeakAsync(inputText);
+
+                    // Create a new Translation object
+                    var translation = new Translation
+                    {
+                        OriginalText = inputText,
+                        TranslatedText = translationResult.Contents.Translated
+                    };
+
+                    // Save the translation to MongoDB
+                     await _translationsCollection.InsertOneAsync(translation);
+                    var translations = await _translationsCollection.Find(_ => true).ToListAsync();
+                    ViewBag.SuccessMessage = "Translated successfully!";
+                    Console.WriteLine("Output" + translation);
 
                     // Console the original input text and translated text
                     Console.WriteLine("Input Text: " + inputText);
@@ -72,14 +89,14 @@ namespace ApiTranslateASP.NETWEB.Controllers
             }
         }
     }
-}
 
-public class TranslationResponse
-{
-    public TranslationContents Contents { get; set; }
-}
+    public class TranslationResponse
+    {
+        public TranslationContents Contents { get; set; }
+    }
 
-public class TranslationContents
-{
-    public string Translated { get; set; }
+    public class TranslationContents
+    {
+        public string Translated { get; set; }
+    }
 }
